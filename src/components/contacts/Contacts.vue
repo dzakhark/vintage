@@ -4,16 +4,21 @@
       <h1 class="title title--main">Contacts</h1>
       <contacts-info></contacts-info>
     </div>
+    <div class="grey-bg">
+      <contacts-offices></contacts-offices>
+    </div>
   </div>
 </template>
 
 <script>
 import ContactsInfo from './ContactsInfo.vue';
+import ContactsOffices from './ContactsOffices.vue';
 
 export default {
   name: 'Contacts',
   components: {
     ContactsInfo,
+    ContactsOffices,
   },
 };
 </script>

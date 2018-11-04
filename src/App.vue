@@ -22,6 +22,11 @@ export default {
     font-family: 'SuisseIntl', sans-serif;
     font-size: 15px;
     font-weight: 300;
+    line-height: 1.8;
     color: $grey;
+  }
+
+  .grey-bg {
+    background-color: $grey-dark;
   }
 </style>

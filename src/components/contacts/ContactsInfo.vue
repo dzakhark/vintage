@@ -33,7 +33,7 @@
         <h2 class="title">
           Technical support <span class="green-text">24/7</span>
         </h2>
-        <p>
+        <p class="support__text">
           GMS understands that it can be hard to follow all new technologies. We regularly provide for all our
           clients educational trainings to make your operator`s business earn more and better though our best practices.
         </p>
@@ -66,5 +66,9 @@ export default {
     display: flex;
     justify-content: space-between;
     margin-right: 15px;
+  }
+
+  .support__text {
+    line-height: 28px;
   }
 </style>
