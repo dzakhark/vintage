@@ -5,7 +5,14 @@
       <contacts-info></contacts-info>
     </div>
     <div class="grey-bg">
-      <contacts-offices></contacts-offices>
+      <div class="container">
+        <contacts-offices></contacts-offices>
+      </div>
+    </div>
+    <div class="green-bg green-bg--image">
+      <div class="container">
+        <contact-us></contact-us>
+      </div>
     </div>
   </div>
 </template>
@@ -13,12 +20,15 @@
 <script>
 import ContactsInfo from './ContactsInfo.vue';
 import ContactsOffices from './ContactsOffices.vue';
+import ContactsForm from '../form/ContactsForm.vue';
+import ContactUs from './ContactUs.vue';
 
 export default {
   name: 'Contacts',
   components: {
     ContactsInfo,
     ContactsOffices,
+    ContactUs,
   },
 };
 </script>
@@ -29,12 +39,13 @@ export default {
   .contacts-link {
     display: inline-block;
     vertical-align: middle;
+    margin-bottom: 5px;
     color: $green;
     font-weight: 600;
     text-decoration: none;
 
     &--tel {
-      margin-top: 27px;
+      margin-top: 20px;
       font-size: 26px;
       font-weight: 300;
     }

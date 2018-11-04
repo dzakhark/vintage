@@ -26,7 +26,5 @@ export default {
     color: $grey;
   }
 
-  .grey-bg {
-    background-color: $grey-dark;
-  }
+
 </style>

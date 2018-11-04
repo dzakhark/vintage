@@ -1,5 +1,5 @@
 <template>
-  <div class="contacts-info">
+  <div class="grid-2 contacts-info">
     <div class="residence">
       <h2 class="title">
         <span class="green-text">GMS</span> Headquarters
@@ -51,9 +51,6 @@ export default {
 
 <style lang="scss" scoped="">
   .contacts-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     padding-bottom: 90px;
   }
 
@@ -62,10 +59,21 @@ export default {
     width: 47%;
   }
 
-  .residence__info {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 15px;
+  .residence {
+
+    &__info {
+      display: flex;
+      justify-content: space-between;
+
+      & > * {
+
+      }
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
   }
 
   .support__text {

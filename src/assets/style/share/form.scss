@@ -1,0 +1,51 @@
+.form-group {
+  position: relative;
+  display: flex;
+  padding: 15px 0;
+  border-bottom: 1px solid $grey-dark;
+  font-size: 18px;
+  color: $grey-dark;
+
+  label {
+    order: 0;
+    padding-right: 50px;
+    cursor: pointer;
+    transition: color .4s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      height: 1px;
+      width: 0;
+      transition: width .4s ease;
+    }
+  }
+}
+
+.form-control {
+  order: 1;
+  flex-grow: 1;
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  color: $grey-dark;
+  border: 0;
+  background-color: transparent;
+  outline: none;
+  transition: color .4s ease;
+
+  &:focus {
+    color: white;
+
+    & + label {
+      color: white;
+
+      &::after {
+        width: 100%;
+        background-color: white;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 30px 15px;
+  border: none;
+  color: white;
+  text-decoration: none;
+  background-color: $grey-dark;
+  font-size: 11px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 0;
+  text-align: center;
+  outline: none;
+  transition: background-color .2s ease;
+
+  &--contact {
+    width: 100%;
+    max-width: 280px;
+    margin-top: 50px;
+    text-transform: uppercase;
+  }
+}
