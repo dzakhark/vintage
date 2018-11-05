@@ -5,7 +5,7 @@
         <li v-for="tab in tabs"
             :key="tab.name"
             class="tabs__item">
-          <a :href="tab.name"
+          <a :href="tab.href"
              class="tabs__link"
              :class="{'tabs__link--active': tab.isActive}"
              @click.prevent="selectedTab(tab)">{{ tab.name }}</a>

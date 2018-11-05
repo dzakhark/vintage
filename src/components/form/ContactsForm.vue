@@ -110,6 +110,7 @@ export default {
       Object.keys(this.form).forEach((field) => {
         this.form[field].val = '';
       });
+      this.mainError = '';
     },
     async sendForm() {
       this.checkValidity();

@@ -18,6 +18,11 @@ export default {
       isActive: false,
     };
   },
+  computed: {
+    href() {
+      return `#${this.name.toLowerCase().replace(/ /g, '-')}`
+    }
+  },
   mounted() {
     this.isActive = this.selected;
   },
