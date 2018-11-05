@@ -20,7 +20,6 @@
 <script>
 import Info from './Info.vue';
 import Offices from './Offices.vue';
-import ContactsForm from '../form/ContactsForm.vue';
 import ContactUs from './ContactUs.vue';
 
 export default {

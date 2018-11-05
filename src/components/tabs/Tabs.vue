@@ -3,6 +3,7 @@
     <div class="tabs">
       <ul class="tabs__list">
         <li v-for="tab in tabs"
+            :key="tab.name"
             class="tabs__item">
           <a :href="tab.name"
              class="tabs__link"
@@ -19,25 +20,25 @@
 </template>
 
 <script>
-  export default {
-    name: 'Tabs',
-    data() {
-      return {
-        tabs: []
-      }
+export default {
+  name: 'Tabs',
+  data() {
+    return {
+      tabs: [],
+    };
+  },
+  created() {
+    this.tabs = this.$children;
+  },
+  methods: {
+    selectedTab(selectedTab) {
+      this.tabs.forEach((tab) => {
+        tab.isActive = tab.name === selectedTab.name;
+      });
+      this.$emit('selected', selectedTab.name);
     },
-    created() {
-      this.tabs = this.$children
-    },
-    methods: {
-      selectedTab(selectedTab) {
-        this.tabs.forEach(tab => {
-          tab.isActive = (tab.name === selectedTab.name)
-        });
-        this.$emit('selected', selectedTab.name)
-      }
-    }
-  }
+  },
+};
 </script>
 
 <style lang="scss" scoped>

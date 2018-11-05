@@ -34,8 +34,9 @@
           Technical support <span class="green-text">24/7</span>
         </h2>
         <p class="support__text">
-          GMS understands that it can be hard to follow all new technologies. We regularly provide for all our
-          clients educational trainings to make your operator`s business earn more and better though our best practices.
+          GMS understands that it can be hard to follow all new technologies.
+          We regularly provide for all our clients educational trainings to make
+          your operator`s business earn more and better though our best practices.
         </p>
         <a href="tel:41415446200" class="contacts-link contacts-link--tel">+41 41 544 62 06</a>
       </div>
@@ -45,8 +46,8 @@
 
 <script>
 export default {
-    name: 'ContactsInfo',
-  };
+  name: 'ContactsInfo',
+};
 </script>
 
 <style lang="scss" scoped="">

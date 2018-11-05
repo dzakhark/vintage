@@ -10,12 +10,12 @@
 </template>
 
 <script>
-  export default {
-    name: 'OfficeTabContent',
-    props: {
-      office: Object
-    }
-  }
+export default {
+  name: 'OfficeTabContent',
+  props: {
+    office: Object,
+  },
+};
 </script>
 
 <style lang="scss" scoped>

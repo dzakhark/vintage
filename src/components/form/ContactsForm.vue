@@ -40,7 +40,11 @@
       {{ form.email.errorText }}
     </span>
     <div class="checkbox-wrapper">
-      <input type="checkbox" name="agree" id="agree" v-model="isPrivacyChecked" class="visibility-hidden custom-checkbox"/>
+      <input type="checkbox"
+             name="agree"
+             id="agree"
+             v-model="isPrivacyChecked"
+             class="visibility-hidden custom-checkbox"/>
       <label for="agree">I agree the processing of personal data</label>
     </div>
     <span v-show="mainError" class="error-msg">
@@ -53,79 +57,79 @@
 </template>
 
 <script>
-  import api from '@/api/api';
+import api from '@/api/api';
 
-  export default {
-    name: 'ContactsForm',
-    data() {
-      return {
-        form: {
-          name: {
-            val: '',
-            errorText: '',
-            rule: /^([A-Za-zа-яА-Я]+[-]?[A-Za-zа-яА-Я]*[.]?[\s]?)+$/i,
-          },
-          phone: {
-            val: '',
-            errorText: '',
-            rule: /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im,
-          },
-          email: {
-            val: '',
-            errorText: '',
-            rule: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-          },
+export default {
+  name: 'ContactsForm',
+  data() {
+    return {
+      form: {
+        name: {
+          val: '',
+          errorText: '',
+          rule: /^([A-Za-zа-яА-Я]+[-]?[A-Za-zа-яА-Я]*[.]?[\s]?)+$/i,
         },
-        mainError: '',
-        isPrivacyChecked: false,
-        isFormValid: false,
-        isSending: false,
-      };
+        phone: {
+          val: '',
+          errorText: '',
+          rule: /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im,
+        },
+        email: {
+          val: '',
+          errorText: '',
+          rule: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        },
+      },
+      mainError: '',
+      isPrivacyChecked: false,
+      isFormValid: false,
+      isSending: false,
+    };
+  },
+  methods: {
+    input(field) {
+      this.mainError = '';
+      const target = this.form[field.toLowerCase()];
+      target.errorText = !target.val.match(target.rule) ? `${field} is not valid!` : '';
+      this.isFormValid = target.errorText === '';
     },
-    methods: {
-      input(field) {
-        this.mainError = '';
-        const target = this.form[field.toLowerCase()];
-        target.errorText = !target.val.match(target.rule) ? `${field} is not valid!` : '';
-        this.isFormValid = target.errorText === '';
-      },
-      checkValidity() {
-        this.isFormValid = true;
-        Object.keys(this.form).forEach(field => {
-          if (this.form.hasOwnProperty(field) && !this.form[field].val) {
-            this.form[field].errorText = 'This field is required!';
-          }
-          this.isFormValid = this.isFormValid && this.form[field].errorText === '';
-        });
-        if (!this.isPrivacyChecked) {
-          this.isFormValid = false;
-          this.mainError = 'Please accept processing of personal data!';
+    checkValidity() {
+      this.isFormValid = true;
+      Object.keys(this.form).forEach((field) => {
+        if (this.form.hasOwnProperty(field) && !this.form[field].val) {
+          this.form[field].errorText = 'This field is required!';
         }
-      },
-      resetForm() {
-        Object.keys(this.form).forEach(field => {
-          this.form[field].val = '';
-        });
-      },
-      async sendForm() {
-        this.checkValidity();
-        if (this.isFormValid) {
-          this.isSending = true;
-          const resp = await api.post('/post', {
-            name: this.form.name.val,
-            phone: this.form.phone.val,
-            email: this.form.email.val,
-          });
-          console.log(resp);
-          if (!resp) {
-            this.mainError = 'Server error:('
-          }
-          this.resetForm();
-          this.isSending = false;
-        }
-      },
+        this.isFormValid = this.isFormValid && this.form[field].errorText === '';
+      });
+      if (!this.isPrivacyChecked) {
+        this.isFormValid = false;
+        this.mainError = 'Please accept processing of personal data!';
+      }
     },
-  };
+    resetForm() {
+      Object.keys(this.form).forEach((field) => {
+        this.form[field].val = '';
+      });
+    },
+    async sendForm() {
+      this.checkValidity();
+      if (this.isFormValid) {
+        this.isSending = true;
+        const resp = await api.post('/post', {
+          name: this.form.name.val,
+          phone: this.form.phone.val,
+          email: this.form.email.val,
+        });
+        console.log(resp);
+        if (!resp) {
+          this.mainError = 'Server error:(';
+        }
+        this.resetForm();
+        this.isSending = false;
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss">

@@ -6,21 +6,24 @@
         <contact-form></contact-form>
       </div>
       <div class="contact-us__text">
-        <p>Please tell us more about your request and give us info about your company and country</p>
+        <p>
+          Please tell us more about your request and give us info
+          about your company and country
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import ContactForm from '../form/ContactsForm.vue';
+import ContactForm from '../form/ContactsForm.vue';
 
-  export default {
-    name: 'ContactsForm',
-    components: {
-      ContactForm
-    }
-  }
+export default {
+  name: 'ContactsForm',
+  components: {
+    ContactForm,
+  },
+};
 </script>
 
 <style lang="scss">
