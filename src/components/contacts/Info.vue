@@ -15,15 +15,15 @@
         <div class="residence__contacts">
           <div>
             <p>Email</p>
-            <a href="#" class="contacts-link">INFO@GMS-WORLDWIDE.COM</a>
+            <a href="mailto:INFO@GMS-WORLDWIDE.COM" class="contacts-link">INFO@GMS-WORLDWIDE.COM</a>
           </div>
           <div>
             <p>Send message</p>
-            <a href="#" class="contacts-link">VIBER US</a>
+            <a href="viber://chat?number=+41415446200" class="contacts-link">VIBER US</a>
           </div>
           <div>
             <p>Send form</p>
-            <a href="#" class="contacts-link">CONTACT US</a>
+            <a href="#contactUs" class="contacts-link" v-scroll-to="'.contact-us'">CONTACT US</a>
           </div>
         </div>
       </div>
@@ -54,20 +54,20 @@ export default {
     padding-bottom: 90px;
   }
 
-  .residence,
-  .support{
-    width: 47%;
-  }
-
   .residence {
+    padding-right: 20px;
 
     &__info {
       display: flex;
       justify-content: space-between;
+    }
 
-      & > * {
+    &__address {
+      padding-right: 15px;
+    }
 
-      }
+    &__contacts {
+      padding-left: 15px;
     }
 
     p {
@@ -76,7 +76,32 @@ export default {
     }
   }
 
-  .support__text {
-    line-height: 28px;
+  .support {
+    padding-left: 20px;
+  }
+
+  @media (max-width: 850px) {
+    .support,
+    .residence {
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .residence {
+      padding-right: 20px;
+
+      &__info {
+        display: block;
+      }
+
+      &__address {
+        padding-right: 0;
+      }
+
+      &__contacts {
+        padding-left: 0;
+      }
+    }
   }
 </style>

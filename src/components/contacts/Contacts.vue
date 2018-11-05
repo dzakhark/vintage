@@ -2,11 +2,11 @@
   <div>
     <div class="container">
       <h1 class="title title--main">Contacts</h1>
-      <contacts-info></contacts-info>
+      <info></info>
     </div>
     <div class="grey-bg">
       <div class="container">
-        <contacts-offices></contacts-offices>
+        <offices></offices>
       </div>
     </div>
     <div class="green-bg green-bg--image">
@@ -18,16 +18,16 @@
 </template>
 
 <script>
-import ContactsInfo from './ContactsInfo.vue';
-import ContactsOffices from './ContactsOffices.vue';
+import Info from './Info.vue';
+import Offices from './Offices.vue';
 import ContactsForm from '../form/ContactsForm.vue';
 import ContactUs from './ContactUs.vue';
 
 export default {
   name: 'Contacts',
   components: {
-    ContactsInfo,
-    ContactsOffices,
+    Info,
+    Offices,
     ContactUs,
   },
 };

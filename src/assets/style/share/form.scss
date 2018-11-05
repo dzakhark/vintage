@@ -48,4 +48,23 @@
       }
     }
   }
+
+  &.error {
+
+    & + label {
+      color: $error;
+
+      &::after {
+        background-color: $error;
+      }
+    }
+  }
+}
+
+.error-msg {
+  display: inline-block;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 600;
+  color: $error;
 }

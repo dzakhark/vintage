@@ -39,4 +39,24 @@
       padding-right: 35px;
     }
   }
+
+  @media (max-width: 850px) {
+    .contact-us {
+
+      &__text {
+        padding-left: 0;
+        padding-top: 50px;
+      }
+
+      &__form {
+        padding-right: 0;
+      }
+    }
+  }
+
+  @media (max-width: 580px) {
+    .contact-us {
+      padding: 40px 0 50px;
+    }
+  }
 </style>
